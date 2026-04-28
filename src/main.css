@@ -1,0 +1,158 @@
+@import 'tailwindcss' prefix(tw);
+@import './themes/theme.css';
+
+@theme inline {
+    /* Colores primarios */
+    --color-primary-50: var(--color-primary-50);
+    --color-primary-100: var(--color-primary-100);
+    --color-primary-200: var(--color-primary-200);
+    --color-primary-300: var(--color-primary-300);
+    --color-primary-400: var(--color-primary-400);
+    --color-primary-500: var(--color-primary-500);
+    --color-primary-600: var(--color-primary-600);
+    --color-primary-700: var(--color-primary-700);
+    --color-primary-800: var(--color-primary-800);
+    --color-primary-900: var(--color-primary-900);
+    --color-primary-950: var(--color-primary-950);
+
+    --color-secondary-50: var(--color-secondary-50);
+    --color-secondary-100: var(--color-secondary-100);
+    --color-secondary-200: var(--color-secondary-200);
+    --color-secondary-300: var(--color-secondary-300);
+    --color-secondary-400: var(--color-secondary-400);
+    --color-secondary-500: var(--color-secondary-500);
+    --color-secondary-600: var(--color-secondary-600);
+    --color-secondary-700: var(--color-secondary-700);
+    --color-secondary-800: var(--color-secondary-800);
+    --color-secondary-900: var(--color-secondary-900);
+    --color-secondary-950: var(--color-secondary-950);
+
+    --color-success: var(--color-success-500);
+    --color-warning: var(--color-warning-500);
+    --color-error: var(--color-error-500);
+    --color-info: var(--color-info-500);
+
+    --color-surface-50: var(--color-surface-50);
+    --color-surface-100: var(--color-surface-100);
+    --color-surface-200: var(--color-surface-200);
+    --color-surface-300: var(--color-surface-300);
+    --color-surface-400: var(--color-surface-400);
+    --color-surface-500: var(--color-surface-500);
+    --color-surface-600: var(--color-surface-600);
+    --color-surface-700: var(--color-surface-700);
+    --color-surface-800: var(--color-surface-800);
+    --color-surface-900: var(--color-surface-900);
+    --color-surface-950: var(--color-surface-950);
+
+    --color-background: var(--body-background-color);
+    --color-foreground: var(--base-font-color);
+
+    /* Typegraphy */
+    /* Headers */
+    --font-size-h1: 4rem;
+    --font-size-h1--line-height: 1.2;
+    --font-weight-h1: 300;
+
+    --font-size-h2: 3rem;
+    --font-size-h2--line-height: 1.2;
+    --font-weight-h2: 300;
+
+    --font-size-h3: 2.5rem;
+    --font-size-h3--line-height: 1.2;
+    --font-weight-h3: 400;
+
+    --font-size-h4: 2rem;
+    --font-size-h4--line-height: 1.2;
+    --font-weight-h4: 400;
+
+    --font-size-h5: 1.5rem;
+    --font-size-h5--line-height: 1.2;
+    --font-weight-h5: 500;
+
+    --font-size-h6: 1.25rem;
+    --font-size-h6--line-height: 1.2;
+    --font-weight-h6: 600;
+
+    /* Body text */
+    --font-size-body: 1rem;
+    --font-size-body--line-height: 1.5;
+
+    /* Small text */
+    --font-size-small: 0.875rem;
+    --font-size-small--line-height: 1.43;
+
+    /* Caption */
+    --font-size-caption: 0.75rem;
+    --font-size-caption--line-height: 1.66;
+
+    /* Button */
+    --font-size-button: 0.875rem;
+    --font-size-button--line-height: 1.75;
+    --font-weight-button: 500;
+}
+
+@layer {
+    p {
+        margin: 0 !important;
+    }
+}
+
+/* Utilities */
+@utility text-h1 {
+    font-size: var(--tw-font-size-h1) !important;
+    line-height: var(--tw-font-size-h1--line-height) !important;
+    font-weight: var(--tw-font-weight-h1) !important;
+}
+
+@utility text-h2 {
+    font-size: var(--tw-font-size-h2) !important;
+    line-height: var(--tw-font-size-h2--line-height) !important;
+    font-weight: var(--tw-font-weight-h2) !important;
+}
+
+@utility text-h3 {
+    font-size: var(--tw-font-size-h3) !important;
+    line-height: var(--tw-font-size-h3--line-height) !important;
+    font-weight: var(--tw-font-weight-h3) !important;
+}
+
+@utility text-h4 {
+    font-size: var(--tw-font-size-h4) !important;
+    line-height: var(--tw-font-size-h4--line-height) !important;
+    font-weight: var(--tw-font-weight-h4) !important;
+}
+
+@utility text-h5 {
+    font-size: var(--tw-font-size-h5) !important;
+    line-height: var(--tw-font-size-h5--line-height) !important;
+    font-weight: var(--tw-font-weight-h5) !important;
+}
+
+@utility text-h6 {
+    font-size: var(--tw-font-size-h6) !important;
+    line-height: var(--tw-font-size-h6--line-height) !important;
+    font-weight: var(--tw-font-weight-h6) !important;
+}
+
+@utility text-body {
+    font-size: var(--tw-font-size-body) !important;
+    line-height: var(--tw-font-size-body--line-height) !important;
+}
+
+@utility text-small {
+    font-size: var(--tw-font-size-small) !important;
+    line-height: var(--tw-font-size-small--line-height) !important;
+}
+
+@utility text-caption {
+    font-size: var(--tw-font-size-caption) !important;
+    line-height: var(--tw-font-size-caption--line-height) !important;
+}
+
+@utility text-button {
+    font-size: var(--tw-font-size-button) !important;
+    line-height: var(--tw-font-size-button--line-height) !important;
+    font-weight: var(--tw-font-weight-button) !important;
+}
+
+@custom-variant dark (&:where([data-mode='dark'], [data-mode='dark'] *));

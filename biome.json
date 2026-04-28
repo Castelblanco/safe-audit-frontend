@@ -1,0 +1,85 @@
+{
+    "$schema": "https://biomejs.dev/schemas/2.4.12/schema.json",
+    "vcs": {
+        "enabled": true,
+        "clientKind": "git",
+        "useIgnoreFile": true
+    },
+    "files": {
+        "ignoreUnknown": false,
+        "includes": ["**", "!**/node_modules", "!**/dist", "!**/build"]
+    },
+    "formatter": {
+        "enabled": true,
+        "formatWithErrors": false,
+        "indentStyle": "space",
+        "indentWidth": 4,
+        "lineWidth": 100,
+        "lineEnding": "lf"
+    },
+    "javascript": {
+        "formatter": {
+            "quoteStyle": "single",
+            "semicolons": "always",
+            "trailingCommas": "all"
+        },
+        "experimentalEmbeddedSnippetsEnabled": true
+    },
+    "html": {
+        "experimentalFullSupportEnabled": true
+    },
+    "css": {
+        "parser": {
+            "tailwindDirectives": true
+        },
+        "formatter": {
+            "indentWidth": 4,
+            "quoteStyle": "single"
+        }
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "recommended": true,
+            "a11y": {
+                "useButtonType": "off"
+            },
+            "correctness": {
+                "noUnusedImports": "error",
+                "noUnusedVariables": "error"
+            },
+            "suspicious": {
+                "noConstEnum": "off",
+                "noConsole": "error",
+                "noAssignInExpressions": "off"
+            },
+            "complexity": {
+                "noStaticOnlyClass": "off",
+                "noImportantStyles": "off"
+            }
+        }
+    },
+    "assist": {
+        "actions": {
+            "source": {
+                "organizeImports": "off"
+            }
+        }
+    },
+    "overrides": [
+        {
+            "includes": ["**/*.vue"],
+            "formatter": {
+                "indentWidth": 4,
+                "lineWidth": 90
+            },
+            "linter": {
+                "rules": {
+                    "correctness": {
+                        "noUnusedVariables": "off"
+                    }
+                }
+            }
+        }
+    ]
+}
