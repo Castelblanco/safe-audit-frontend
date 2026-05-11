@@ -12,7 +12,7 @@ import { httpV1 } from '@storages/http/client/instances';
 import type { AuditAPI } from './dtos';
 import { handlerError } from '@storages/http/client/errors';
 import { AuditAdapters } from './adapters';
-import { withAbortController } from '@storages/http/client/abort_controller';
+import { withAbortController } from '@storages/http/client/drivers';
 
 const PATH = '/audits';
 const adapters = new AuditAdapters();

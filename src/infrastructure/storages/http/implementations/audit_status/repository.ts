@@ -9,7 +9,7 @@ import { AuditStatusAdapters } from './adapters';
 import { handlerError } from '@storages/http/client/errors';
 import { httpV1 } from '@storages/http/client/instances';
 import type { AuditStatusAPI } from './dtos';
-import { withAbortController } from '@storages/http/client/abort_controller';
+import { withAbortController } from '@storages/http/client/drivers';
 
 const PATH = '/audits';
 const adapters = new AuditStatusAdapters();
