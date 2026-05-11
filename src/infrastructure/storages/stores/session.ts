@@ -34,10 +34,15 @@ export const useSessionStore = defineStore('session-store', () => {
         session.value = JSON.parse(result.value) as SessionDOM;
     })();
 
+    const get = () => {
+        if (session.value) return session.value;
+        throw router.replace(ROUTES.LOGIN);
+    };
     const clear = () => (session.value = undefined);
 
     return {
         value: session,
+        get,
         clear,
     };
 });
