@@ -5,29 +5,53 @@ const DURATION = 5000;
 export class SnackbarStore {
     success = (message: string) => {
         Notify.create({
-            type: "positive",
+            type: 'positive',
             message,
             timeout: DURATION,
             progress: true,
-        })
+            position: 'top-right',
+            actions: [
+                {
+                    icon: 'close',
+                    color: 'white',
+                    rounded: true,
+                },
+            ],
+        });
     };
 
     warning = (message: string) => {
         Notify.create({
-            type: "warning",
+            type: 'warning',
             message,
             timeout: DURATION,
             progress: true,
-        })
+            position: 'top-right',
+            actions: [
+                {
+                    icon: 'close',
+                    color: 'white',
+                    rounded: true,
+                },
+            ],
+        });
     };
 
     error = (message: string) => {
         Notify.create({
-            type: "negative",
+            type: 'negative',
             message,
             timeout: DURATION,
             progress: true,
-        })
+            position: 'top-right',
+            actions: [
+                {
+                    icon: 'close',
+                    color: 'white',
+                    rounded: true,
+                },
+            ],
+        });
     };
 }
 
