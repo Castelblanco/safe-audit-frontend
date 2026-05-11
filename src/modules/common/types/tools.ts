@@ -7,6 +7,7 @@ export type TDatetime = {
     fromISOText: (iso: string) => Date;
     fromTimestamp: (timestamp: number) => Date;
     fromFormat: (text: string, format: FORMATS_DATE) => Date;
+    toMillis: (date: Date) => number;
     plus: (date: Date, unit: DatetimeUnits, count: number) => Date;
     minus: (date: Date, unit: DatetimeUnits, count: number) => Date;
     resetDateToStart: (date: Date, unit: DatetimeUnit) => Date;

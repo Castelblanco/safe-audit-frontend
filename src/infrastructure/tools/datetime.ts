@@ -6,7 +6,6 @@ export class Datetime implements TDatetime {
     now = (): Date => DateTime.utc().toJSDate();
 
     fromDate = (date: Date): Date => {
-        DateTime.fromFormat;
         return DateTime.fromJSDate(date).toUTC().toJSDate();
     };
     fromISOText = (iso: string): Date => {
@@ -18,6 +17,8 @@ export class Datetime implements TDatetime {
     fromFormat = (text: string, format: FORMATS_DATE): Date => {
         return DateTime.fromFormat(text, format).toUTC().toJSDate();
     };
+
+    toMillis = (date: Date): number => DateTime.fromJSDate(date).toMillis();
 
     plus = (date: Date, unit: DatetimeUnits, count: number): Date => {
         return DateTime.fromJSDate(date)
