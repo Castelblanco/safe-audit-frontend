@@ -9,8 +9,8 @@ import { loadTheme } from '@helpers/load_theme';
 import 'quasar/src/css/index.sass';
 import '@quasar/extras/material-icons/material-icons.css';
 import './main.css';
-import { setInterceptor } from '@storages/http/client/interceptor';
-import { httpV1 } from '@storages/http/client/instances';
+import { setInterceptor, setInterceptorAuth } from '@storages/http/client/interceptor';
+import { httpAuth, httpV1 } from '@storages/http/client/instances';
 const app = createApp(App);
 
 const theme = loadTheme();
@@ -32,13 +32,17 @@ app.use(Quasar, {
             warning: '#e4aa00',
         },
         dark: theme === 'dark',
+        notify: {
+            classes: 'snackbar-animation',
+        },
     },
     plugins: {
         Notify,
     },
 });
 
-// Set interseptor
+// Set interseptors
+setInterceptorAuth([httpAuth]);
 setInterceptor([httpV1]);
 
 app.mount('#app');
