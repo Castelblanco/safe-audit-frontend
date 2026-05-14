@@ -155,4 +155,10 @@
     font-weight: var(--tw-font-weight-button) !important;
 }
 
+.snackbar-animation {
+    transition:
+        transform 0.3s,
+        opacity 0.3s;
+}
+
 @custom-variant dark (&:where([data-mode='dark'], [data-mode='dark'] *));
