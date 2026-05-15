@@ -4,6 +4,7 @@ export type TTenantDOM = {
     id: string;
     name: string;
     planId: number;
+    ownerUserId: string;
     subscriptionStatusId: number;
     nextPaymentAt: Date;
     createdAt: Date;
@@ -15,6 +16,7 @@ export class TenantDOM implements TTenantDOM {
     id: string;
     name: string;
     planId: number;
+    ownerUserId: string;
     subscriptionStatusId: number;
     nextPaymentAt: Date;
     createdAt: Date;
@@ -25,6 +27,7 @@ export class TenantDOM implements TTenantDOM {
         this.id = item.id;
         this.name = item.name;
         this.planId = item.planId;
+        this.ownerUserId = item.ownerUserId;
         this.subscriptionStatusId = item.subscriptionStatusId;
         this.nextPaymentAt = item.nextPaymentAt;
         this.createdAt = item.createdAt;
