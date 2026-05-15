@@ -1,5 +1,6 @@
 import { ROUTES } from '@constants/routes';
 import type { SessionDOM } from '@modules/auth/domain/entities/session';
+import { datetimeTool } from '@tools/datetime';
 import { defineStore } from 'pinia';
 import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
@@ -14,6 +15,9 @@ export const useSessionStore = defineStore('session-store', () => {
             return cookieStore.set({
                 name: KEY,
                 value: JSON.stringify(session.value),
+                sameSite: 'strict',
+                // One month
+                expires: datetimeTool.toMillis(datetimeTool.plus(datetimeTool.now(), 'days', 30)),
             });
         }
 
