@@ -21,7 +21,7 @@ const loading = computed(() => usersStore.roles.length === 0);
         :loading="loading"
         key-label="name"
         key-value="id"
-        label="Estado"
+        label="Rol"
         class="tw:min-w-30"
         v-bind="props"
     />
