@@ -4,3 +4,4 @@ export * from './get_by_id';
 export * from './get_roles';
 export * from './get_status';
 export * from './update';
+export * from './update_organizations';
