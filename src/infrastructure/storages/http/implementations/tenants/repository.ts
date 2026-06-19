@@ -16,6 +16,7 @@ export class TenantHttpRepo
             _id: filters.id,
             name: filters.name,
             plan_id: filters.planId,
+            owner_user_id: filters.ownerUserId,
             subscription_status_id: filters.subscriptionStatusId,
             next_payment_at: adapterDateToString(filters.nextPaymentAt),
             created_at: adapterDateToString(filters.createdAt),

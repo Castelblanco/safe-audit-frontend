@@ -5,10 +5,12 @@ import { servicesOrganizations } from '@services/organizations';
 import { defineStore } from 'pinia';
 import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
+import { useSessionStore } from './session';
 
 const LAST_ORG_KEY = 'last-org-id';
 
 export const useOrganizationsStore = defineStore('organizations-store', () => {
+    const session = useSessionStore();
     const router = useRouter();
     const organizations = ref<OrganizationDOM[]>([]);
     const orgSelect = ref<OrganizationDOM>();
@@ -31,7 +33,7 @@ export const useOrganizationsStore = defineStore('organizations-store', () => {
 
     const init = async () => {
         if (organizations.value.length > 0) return;
-        const result = await servicesOrganizations.getAll({});
+        const result = await servicesOrganizations.getByUser(session.get().user.id);
         handleResponse(result, {
             error(_) {},
             success(data) {

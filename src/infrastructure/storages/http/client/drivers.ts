@@ -147,12 +147,12 @@ export abstract class BaseAxiosHttpRepo<TDOM, TFDOM extends TFilterBy<TDOM>, TAP
             return handlerError(error);
         }
     };
-    update = async (id: TGeneralId, item: TDOM): Promise<TApiResponse<TDOM>> => {
+    update = async (id: TGeneralId, item: Partial<TDOM>): Promise<TApiResponse<TDOM>> => {
         try {
             return await withAbortController(async (controller) => {
                 const { data } = await this.http.patch<ApiReponse<TAPI>>(
                     `${this.path}/${id}`,
-                    this.adapters.domToApi(item),
+                    this.adapters.partialDomToApi(item),
                     {
                         signal: controller.signal,
                     },

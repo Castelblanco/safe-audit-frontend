@@ -4,6 +4,7 @@ export type TTenantAPI = {
     _id: string;
     name: string;
     plan_id: number;
+    owner_user_id: string;
     subscription_status_id: number;
     next_payment_at: string;
     created_at: string;
@@ -15,6 +16,7 @@ export class TenantAPI implements TTenantAPI {
     _id: string;
     name: string;
     plan_id: number;
+    owner_user_id: string;
     subscription_status_id: number;
     next_payment_at: string;
     created_at: string;
@@ -25,6 +27,7 @@ export class TenantAPI implements TTenantAPI {
         this._id = item._id;
         this.name = item.name;
         this.plan_id = item.plan_id;
+        this.owner_user_id = item.owner_user_id;
         this.subscription_status_id = item.subscription_status_id;
         this.next_payment_at = item.next_payment_at;
         this.created_at = item.created_at;

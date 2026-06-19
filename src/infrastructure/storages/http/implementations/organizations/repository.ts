@@ -16,6 +16,7 @@ import { OrganizationAdapters } from './adapters';
 import { ListResponse } from '@modules/common/dto/responses/list_responses';
 import type { OrganizationAPI, TOrganizationFAPI } from './dtos';
 import { ApiReponse } from '@modules/common/dto/responses/api_responses';
+import type { UserDOM } from '@modules/users/domain/entities/user';
 const PATH = '/organizations';
 const adapters = new OrganizationAdapters();
 
@@ -35,6 +36,31 @@ export class OrganizationHttpRepo implements TOrganizationRepository {
                     ),
                     error: null,
                 };
+            });
+        } catch (error) {
+            return handlerError(error);
+        }
+    };
+    getByUser = async (userId: UserDOM['id']): Promise<TListResponse<OrganizationDOM>> => {
+        try {
+            return await withAbortController(async () => {
+                return await withAbortController(async (controller) => {
+                    const { data } = await httpAuth.get<ListResponse<OrganizationAPI>>(
+                        `${PATH}/get-by-user/${userId}`,
+                        {
+                            signal: controller.signal,
+                        },
+                    );
+
+                    return {
+                        data: new ListResponse(
+                            data.items.map(adapters.apiToDom),
+                            data.total,
+                            data.status,
+                        ),
+                        error: null,
+                    };
+                });
             });
         } catch (error) {
             return handlerError(error);
@@ -109,13 +135,13 @@ export class OrganizationHttpRepo implements TOrganizationRepository {
     };
     update = async (
         id: TGeneralId,
-        item: OrganizationDOM,
+        item: Partial<OrganizationDOM>,
     ): Promise<TApiResponse<OrganizationDOM>> => {
         try {
             return await withAbortController(async (controller) => {
                 const { data } = await httpAuth.patch<ApiReponse<OrganizationAPI>>(
                     `${PATH}/${id}`,
-                    adapters.domToApi(item),
+                    adapters.partialDomToApi(item),
                     {
                         signal: controller.signal,
                     },
@@ -146,7 +172,6 @@ export class OrganizationHttpRepo implements TOrganizationRepository {
             _id: filters.id,
             name: filters.name,
             tenant_id: filters.tenantId,
-            owner_user_id: filters.ownerUserId,
             created_at: adapterDateToString(filters.createdAt),
             updated_at: adapterDateToString(filters.updatedAt),
             deleted_at: adapterDateToString(filters.deletedAt),

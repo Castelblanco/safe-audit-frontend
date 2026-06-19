@@ -8,7 +8,6 @@ export type TUserDOM = {
     roleId: number;
     statusId: number;
     tenantId: string;
-    organizationId: string | null;
     createdAt: Date;
     updatedAt: Date;
     deletedAt: Date | null;
@@ -22,7 +21,6 @@ export class UserDOM implements TUserDOM {
     roleId: number;
     statusId: number;
     tenantId: string;
-    organizationId: string | null;
     createdAt: Date;
     updatedAt: Date;
     deletedAt: Date | null;
@@ -35,7 +33,6 @@ export class UserDOM implements TUserDOM {
         this.roleId = item.roleId;
         this.statusId = item.statusId;
         this.tenantId = item.tenantId;
-        this.organizationId = item.organizationId;
         this.createdAt = item.createdAt;
         this.updatedAt = item.updatedAt;
         this.deletedAt = item.deletedAt;
