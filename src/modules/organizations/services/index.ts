@@ -1,3 +1,4 @@
 export * from './create';
 export * from './get_all';
 export * from './get_by_user';
+export * from './update';
