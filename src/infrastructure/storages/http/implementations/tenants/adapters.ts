@@ -7,6 +7,9 @@ export class TenantAdapters implements TAdapter<TenantDOM, TenantAPI> {
         return new TenantAPI({
             _id: item.id,
             name: item.name,
+            email: item.email,
+            phone: item.phone,
+            country_code: item.countryCode,
             plan_id: item.planId,
             owner_user_id: item.ownerUserId,
             subscription_status_id: item.subscriptionStatusId,
@@ -20,6 +23,9 @@ export class TenantAdapters implements TAdapter<TenantDOM, TenantAPI> {
         return {
             _id: item.id,
             name: item.name,
+            email: item.email,
+            phone: item.phone,
+            country_code: item.countryCode,
             plan_id: item.planId,
             owner_user_id: item.ownerUserId,
             subscription_status_id: item.subscriptionStatusId,
@@ -34,6 +40,9 @@ export class TenantAdapters implements TAdapter<TenantDOM, TenantAPI> {
         return new TenantDOM({
             id: item._id,
             name: item.name,
+            email: item.email,
+            phone: item.phone,
+            countryCode: item.country_code,
             planId: item.plan_id,
             ownerUserId: item.owner_user_id,
             subscriptionStatusId: item.subscription_status_id,

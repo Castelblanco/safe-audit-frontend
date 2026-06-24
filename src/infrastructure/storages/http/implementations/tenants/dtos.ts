@@ -3,6 +3,9 @@ import type { TFilterBy } from '@common/types/operations';
 export type TTenantAPI = {
     _id: string;
     name: string;
+    email: string;
+    phone: string;
+    country_code: string;
     plan_id: number;
     owner_user_id: string;
     subscription_status_id: number;
@@ -15,6 +18,9 @@ export type TTenantAPI = {
 export class TenantAPI implements TTenantAPI {
     _id: string;
     name: string;
+    email: string;
+    phone: string;
+    country_code: string;
     plan_id: number;
     owner_user_id: string;
     subscription_status_id: number;
@@ -26,6 +32,9 @@ export class TenantAPI implements TTenantAPI {
     constructor(item: TTenantAPI) {
         this._id = item._id;
         this.name = item.name;
+        this.email = item.email;
+        this.phone = item.phone;
+        this.country_code = item.country_code;
         this.plan_id = item.plan_id;
         this.owner_user_id = item.owner_user_id;
         this.subscription_status_id = item.subscription_status_id;

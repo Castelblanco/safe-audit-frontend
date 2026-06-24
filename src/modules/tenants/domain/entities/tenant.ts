@@ -3,6 +3,9 @@ import type { TFilterBy } from '@common/types/operations';
 export type TTenantDOM = {
     id: string;
     name: string;
+    email: string;
+    phone: string;
+    countryCode: string;
     planId: number;
     ownerUserId: string;
     subscriptionStatusId: number;
@@ -15,6 +18,9 @@ export type TTenantDOM = {
 export class TenantDOM implements TTenantDOM {
     id: string;
     name: string;
+    email: string;
+    phone: string;
+    countryCode: string;
     planId: number;
     ownerUserId: string;
     subscriptionStatusId: number;
@@ -26,6 +32,9 @@ export class TenantDOM implements TTenantDOM {
     constructor(item: TTenantDOM) {
         this.id = item.id;
         this.name = item.name;
+        this.email = item.email;
+        this.phone = item.phone;
+        this.countryCode = item.countryCode;
         this.planId = item.planId;
         this.ownerUserId = item.ownerUserId;
         this.subscriptionStatusId = item.subscriptionStatusId;

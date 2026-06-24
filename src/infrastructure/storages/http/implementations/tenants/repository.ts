@@ -15,6 +15,9 @@ export class TenantHttpRepo
         return {
             _id: filters.id,
             name: filters.name,
+            email: filters.email,
+            phone: filters.phone,
+            country_code: filters.countryCode,
             plan_id: filters.planId,
             owner_user_id: filters.ownerUserId,
             subscription_status_id: filters.subscriptionStatusId,
