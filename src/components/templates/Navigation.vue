@@ -20,16 +20,13 @@ import IconCalendar from '@atoms/Icons/IconCalendar.vue';
 import { useThemeStore } from '@storages/stores/theme';
 import IconSun from '@atoms/Icons/IconSun.vue';
 import IconMoon from '@atoms/Icons/IconMoon.vue';
-import { computed, onMounted, ref } from 'vue';
+import { computed, ref } from 'vue';
 import ButtonSecondary from '@atoms/Buttons/ButtonSecondary.vue';
 import { useOrganizationsStore } from '@storages/stores/organizations';
 import { storeToRefs } from 'pinia';
 import H6 from '@atoms/Typography/H6.vue';
 import type { OrganizationDOM } from '@modules/organizations/domain/entities/organization';
-import { servicesTenants } from '@services/tenants';
-import { useSessionStore } from '@storages/stores/session';
-import type { TenantDOM } from '@modules/tenants/domain/entities/tenant';
-import { handleResponse } from '@helpers/handle_response';
+import { useTenantStore } from '@storages/stores/tenant';
 import IconSettings from '@atoms/Icons/IconSettings.vue';
 import MainContent from './MainContent.vue';
 
@@ -66,25 +63,12 @@ const MENUS: TMenu[] = [
 
 const route = useRoute();
 const themeStore = useThemeStore();
-const sessionStore = useSessionStore();
 const { orgSelect, organizations } = storeToRefs(useOrganizationsStore());
-
-const tenant = ref<TenantDOM>();
+const { tenant } = storeToRefs(useTenantStore());
 const showMenu = ref(true);
 const showOrgs = ref(false);
 
 const menuSelected = computed(() => MENUS.find(({ href }) => href === route.path));
-
-onMounted(async () => {
-    const result = await servicesTenants.getById(sessionStore.get().user.tenantId);
-
-    handleResponse(result, {
-        error(_) {},
-        success(data) {
-            tenant.value = data.item;
-        },
-    });
-});
 
 const handleSelectOrg = (org: OrganizationDOM) => {
     orgSelect.value = org;
