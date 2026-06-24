@@ -4,7 +4,7 @@ import { QInput } from 'quasar';
 export type TInputTextProps = {
     label?: string;
     class?: string;
-    type?: 'text' | 'password';
+    type?: 'text' | 'password' | 'number';
     name?: string;
 };
 const model = defineModel<string | undefined | null>();
